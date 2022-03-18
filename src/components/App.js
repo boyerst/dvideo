@@ -37,6 +37,8 @@ class App extends Component {
     console.log("account", accounts[0])
 
     //Add first account the the state
+    this.setState({ account: accounts[0] })
+    console.log(this.state)
 
     //Get network ID
     //Get network data
@@ -74,7 +76,8 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      loading: false
+      loading: false,
+      account: ''
       //set states
     }
 

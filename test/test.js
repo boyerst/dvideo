@@ -26,6 +26,7 @@ contract('DVideo', ([deployer, author]) => {
     })
   })
 
+  // Check the behavior of the video contract
   describe('videos', async () => {
     let result, videoCount
     const hash = 'QmV8cfu6n4NT5xRr2AHdKxFMTZEJrA44qgrBCr739BN9Wb'
@@ -46,6 +47,7 @@ contract('DVideo', ([deployer, author]) => {
       assert.equal(event.author, author, 'author is correct')
 
       // FAILURE: Video must have hash
+        // This tells Chai that the test should pass if it fails when we call uploadVideo and pass in an empty string for the hash
       await dvideo.uploadVideo('', 'Video title', { from: author }).should.be.rejected;
 
       // FAILURE: Video must have title

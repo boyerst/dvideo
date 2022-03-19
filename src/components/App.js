@@ -41,6 +41,8 @@ class App extends Component {
     console.log(this.state)
 
     //Get network ID
+    const networkId = await web3.eth.net.getId()
+    console.log(networkId)
     //Get network data
     //Check if net data exists, then
       //Assign dvideo contract to a variable

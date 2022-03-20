@@ -56,7 +56,10 @@ class App extends Component {
       console.log(this.state)
 
       //Check videoAmounts
+      const videoCount = await dvideo.methods.videoCount().call()
       //Add videAmounts to the state
+      this.setState({ videoCount })
+      console.log(videoCount)
 
       //Iterate throught videos and add them to the state (by newest)
 
@@ -89,7 +92,8 @@ class App extends Component {
     this.state = {
       loading: false,
       account: '',
-      dvideo: null
+      dvideo: null,
+      videoCount: 0
       //set states
     }
 

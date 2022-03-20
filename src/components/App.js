@@ -52,6 +52,8 @@ class App extends Component {
       const dvideo = new web3.eth.Contract(DVideo.abi, networkData.address)
       console.log(dvideo) 
       //Add dvideo to the state
+      this.setState({ dvideo })
+      console.log(this.state)
 
       //Check videoAmounts
       //Add videAmounts to the state
@@ -86,7 +88,8 @@ class App extends Component {
     super(props)
     this.state = {
       loading: false,
-      account: ''
+      account: '',
+      dvideo: null
       //set states
     }
 

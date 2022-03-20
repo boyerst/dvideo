@@ -47,7 +47,10 @@ class App extends Component {
     const networkData = DVideo.networks[networkId]
     console.log(networkData)
     //Check if net data exists, then
+    if(networkData) {
       //Assign dvideo contract to a variable
+      const dvideo = new web3.eth.Contract(DVideo.abi, networkData.address)
+      console.log(dvideo) 
       //Add dvideo to the state
 
       //Check videoAmounts
@@ -60,6 +63,8 @@ class App extends Component {
       //Set loading state to false
 
       //If network data doesn't exisits, log error
+
+    }
   }
 
   //Get video

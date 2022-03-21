@@ -48,21 +48,24 @@ class App extends Component {
     console.log(networkData)
     //Check if net data exists, then
     if(networkData) {
-      //Assign dvideo contract to a variable
+      //Assign dvideo contract to a variable and add to state
       const dvideo = new web3.eth.Contract(DVideo.abi, networkData.address)
       console.log(dvideo) 
-      //Add dvideo to the state
       this.setState({ dvideo })
       console.log(this.state)
 
-      //Check videoAmounts
+      //Check videoAmounts and add to state
       const videoCount = await dvideo.methods.videoCount().call()
-      //Add videAmounts to the state
       this.setState({ videoCount })
       console.log(videoCount)
 
       //Iterate throught videos and add them to the state (by newest)
-
+      for (var i = 1; i <= videoCount; i++) {
+        const video = await dvideo.methods.posts(i).call()
+        this.setState({
+          videos: [...this.state.videos, video]
+        })
+      }
 
       //Set latest video and it's title to view as default 
       //Set loading state to false
@@ -93,7 +96,8 @@ class App extends Component {
       loading: false,
       account: '',
       dvideo: null,
-      videoCount: 0
+      videoCount: 0,
+      videos: []
       //set states
     }
 

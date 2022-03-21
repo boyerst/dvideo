@@ -66,10 +66,10 @@ class App extends Component {
           videos: [...this.state.videos, video]
         })
       }
-
       //Set latest video and it's title to view as default 
-      //Set loading state to false
 
+      //Set loading state to false
+      this.setState({ loading: false })
       //If network data doesn't exisits, log error
 
     }
@@ -93,7 +93,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      loading: false,
+      loading: true,
       account: '',
       dvideo: null,
       videoCount: 0,

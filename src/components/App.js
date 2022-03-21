@@ -109,6 +109,7 @@ class App extends Component {
       <div>
         <Navbar 
           //Account
+          account={this.state.account}
         />
         { this.state.loading
           ? <div id="loader" className="text-center mt-5"><p>Loading...</p></div>

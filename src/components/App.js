@@ -55,23 +55,33 @@ class App extends Component {
       console.log(this.state)
 
       //Check videoAmounts and add to state
-      const videoCount = await dvideo.methods.videoCount().call()
-      this.setState({ videoCount })
-      console.log(videoCount)
+      const videosCount = await dvideo.methods.videoCount().call()
+      this.setState({ videosCount })
+      console.log(videosCount)
 
       //Iterate throught videos and add them to the state (by newest)
-      for (var i = 1; i <= videoCount; i++) {
+      for (var i = 1; i <= videosCount; i++) {
         const video = await dvideo.methods.posts(i).call()
         this.setState({
           videos: [...this.state.videos, video]
         })
       }
       //Set latest video and it's title to view as default 
+      // Fetch the last video added
+      const latest = await dvideo.methods.videos(videosCount).call()
+      this.setState({
+        currentHash: latest.hash, 
+        currentTitle: latest.title
+      })
+      // Turn off loader
+      this.setState({ loading: false })
+
 
       //Set loading state to false
       this.setState({ loading: false })
       //If network data doesn't exisits, log error
-
+    } else {
+      window.alert('DVideo contract not deployed to the detected network.')
     }
   }
 
@@ -96,8 +106,10 @@ class App extends Component {
       loading: true,
       account: '',
       dvideo: null,
-      videoCount: 0,
-      videos: []
+      videosCount: 0,
+      videos: [],
+      currentHash: null, 
+      currentTitle: null
       //set states
     }
 

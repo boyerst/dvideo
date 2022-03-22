@@ -16,7 +16,7 @@ class Main extends Component {
             <h3>{/* Code... */}</h3>
           </div>
           <div className="col-md-2 overflow-auto text-center" style={{ maxHeight: '768px', minWidth: '175px' }}>
-            <h5><b>{/* Share Video */}</b></h5>
+            <h5><b> Share Video </b></h5>
             <form onSubmit={(event) => {
               {/* Upload Video...*/}
             }} >
@@ -25,7 +25,7 @@ class Main extends Component {
               <div className="form-group mr-sm-2">
                 {/* Input...*/}
               </div>
-              {/* Button...*/}
+              <button type="submit" className="btn btn-danger btn-block btn-sm">Upload!</button>
               &nbsp;
             </form>
             {/* Map Video...*/}

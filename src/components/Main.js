@@ -23,8 +23,14 @@ class Main extends Component {
               &nbsp;
               {/* Get Video...*/}
               <div className="form-group mr-sm-2">
-                {/* Input...*/}
+                <input 
+                  id="videoTitle"
+                  type="text"
+                  className="form-control-sm"
+                  placeholder="Title..."
+                  required />
               </div>
+
               <button type="submit" className="btn btn-danger btn-block btn-sm">Upload!</button>
               &nbsp;
             </form>

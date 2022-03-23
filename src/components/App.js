@@ -110,7 +110,7 @@ class App extends Component {
       videos: [],
       currentHash: null, 
       currentTitle: null
-      //set states
+ 
     }
 
     //Bind functions

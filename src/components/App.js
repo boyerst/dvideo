@@ -85,9 +85,27 @@ class App extends Component {
     }
   }
 
-  //Get video
+  // captureFile preprocesses the file
+  // captureFile converts the file into the correct format (an array buffer) to be put on IPFS
+    // Eventually we want it to be a buffer object?
   captureFile = event => {
-
+    // Prevent page from reloading when submit video
+    event.preventDefault()
+    // Capture the file from the synthetic event object created in the onChange event in the form field
+      // The synthetic event contains all of the properties of the files listed in state
+      // So we target the first file in the files array at index 0 ❓❓❓
+    const file = event.target.files[0]
+    // Declare how we will use the file - we use the native file reader from the JS window object
+    const reader = new window.FileReader()
+    // Read the file -> this method then triggers loadend event -> which triggers the onloadend event
+      // Returns an ArrayBuffer representing the file's data
+    reader.readAsArrayBuffer(file)
+    // loadend event triggered by onloadend event above
+    reader.onloadend = () => {
+    // Set state with the ArrayBuffer representing the file's data
+      this.setState({ buffer: Buffer(reader.result) })
+      console.log('buffer', this.state.buffer)    
+    }
   }
 
   //Upload video
@@ -127,6 +145,7 @@ class App extends Component {
           ? <div id="loader" className="text-center mt-5"><p>Loading...</p></div>
           : <Main
               //states&functions
+              captureFile={this.captureFile}
             />
         }
       </div>

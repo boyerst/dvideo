@@ -110,7 +110,7 @@ class App extends Component {
 
   //Upload video
   uploadVideo = title => {
-
+    console.log("Uploading video to IPFS")
   }
 
   //Change Video
@@ -145,6 +145,7 @@ class App extends Component {
           ? <div id="loader" className="text-center mt-5"><p>Loading...</p></div>
           : <Main
               //states&functions
+              uploadVideo={this.uploadVideo}
               captureFile={this.captureFile}
             />
         }

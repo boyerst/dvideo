@@ -21,6 +21,7 @@ class Main extends Component {
             <form onSubmit={(event) => {
               event.preventDefault()
               const title = this.videoTitle.value
+              // Pass the video title to uploadVideo
               this.props.uploadVideo(title)
             }} >
               &nbsp;

@@ -17,8 +17,11 @@ class Main extends Component {
           </div>
           <div className="col-md-2 overflow-auto text-center" style={{ maxHeight: '768px', minWidth: '175px' }}>
             <h5><b> Share Video </b></h5>
+            {/* Capture the video title */}
             <form onSubmit={(event) => {
-              {/* Upload Video...*/}
+              event.preventDefault()
+              const title = this.videoTitle.value
+              this.props.uploadVideo(title)
             }} >
               &nbsp;
               {/* Input for video file*/}
@@ -30,6 +33,10 @@ class Main extends Component {
                   type="text"
                   className="form-control-sm"
                   placeholder="Title..."
+                  // The ref attribute is a callback function that receives the underlying DOM element or class instance (depending on the type of element) as its argument
+                  // The callback function here is receiving the <input> DOM element as its argument
+                  // In this case we declare that the input to the <input> DOM element will ref this.videoTitle
+                  // Then in our onSubmit event we target the value of the input and capture the video title that the user inputs by referencing this.video.value IE input.value
                   ref={(input) => { this.videoTitle = input }}
                   required />
               </div>

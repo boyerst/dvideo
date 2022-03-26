@@ -25,7 +25,9 @@ class Main extends Component {
               this.props.uploadVideo(title)
             }} >
               &nbsp;
-              {/* Input for video file*/}
+              {/* Input for video file
+                  onChange Event: As soon as an event in which the input 'changes' it will execute the event handler this.props.captureFile
+              */}
               <input type="file" accept=".mp4, .mkv, .ogg, .wmv" onChange={this.props.captureFile} style={{ width: '250px' }} />
               {/* div and Input for videoTitle */}
               <div className="form-group mr-sm-2">

@@ -111,6 +111,18 @@ class App extends Component {
   //Upload video
   uploadVideo = title => {
     console.log("Uploading video to IPFS")
+    // ipfs.add(file, callback)
+      // File = needs to be in buffer format, which it done in captureFile
+      // Callback = tells to execute more code once the file has been added
+    ipfs.add(this.state.buffer, (error, result) => {
+    // Basic error handling
+      console.log('IPFS result', result)
+      if(error) {
+        console.error(error)
+        return
+      }
+      // Once we have waited and it has been added,  we put it on the blockchain    
+    })
   }
 
   //Change Video

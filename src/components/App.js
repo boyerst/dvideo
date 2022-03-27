@@ -122,6 +122,18 @@ class App extends Component {
         return
       }
       // Once we have waited and it has been added,  we put it on the blockchain    
+      this.setState({ loading: true })
+      // Video hash = result[0].hash
+        // Where 0 targets the first object in the array and .hash targets the value in the object
+      // Must invoke .send() in order to create transaction
+        // Then tell it who the sender is
+        // Then what to do upon transation completion
+      this.state.dvideo.methods.uploadVideo(result[0].hash, title).send({ from: this.state.account }).on('transactionHash', (hash) => {
+        this.setState({
+          loading: false
+        })
+      })
+
     })
   }
 

@@ -11,7 +11,7 @@ class Main extends Component {
         <div className="row">
           <div className="col-md-10">
             <div className="embed-responsive embed-responsive-16by9" style={{ maxHeight: '768px'}}>
-              {/* Video... */}
+            <video src={`https://ipfs.infura.io/ipfs/${this.props.currentHash}`}></video>
             </div>
             <h3>{/* Code... */}</h3>
           </div>

@@ -61,7 +61,7 @@ class App extends Component {
 
       //Iterate throught videos and add them to the state (by newest)
       for (var i = 1; i <= videosCount; i++) {
-        const video = await dvideo.methods.posts(i).call()
+        const video = await dvideo.methods.videos(i).call()
         this.setState({
           videos: [...this.state.videos, video]
         })
@@ -171,6 +171,7 @@ class App extends Component {
               //states&functions
               uploadVideo={this.uploadVideo}
               captureFile={this.captureFile}
+              currentHash={this.state.currentHash}
             />
         }
       </div>

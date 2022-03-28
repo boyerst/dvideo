@@ -17,7 +17,7 @@ class Main extends Component {
               >
               </video>
             </div>
-            <h3>{/* Code... */}</h3>
+            <h3><b><i>{this.props.currentTitle}</i></b></h3>
           </div>
           <div className="col-md-2 overflow-auto text-center" style={{ maxHeight: '768px', minWidth: '175px' }}>
             <h5><b> Share Video </b></h5>

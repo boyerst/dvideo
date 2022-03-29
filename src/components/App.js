@@ -139,7 +139,8 @@ class App extends Component {
 
   //Change Video
   changeVideo = (hash, title) => {
-
+    this.setState({'currentHash': hash});
+    this.setState({'currentTitle': title});
   }
 
   constructor(props) {
@@ -172,6 +173,7 @@ class App extends Component {
               videos={this.state.videos}
               uploadVideo={this.uploadVideo}
               captureFile={this.captureFile}
+              changeVideo={this.changeVideo}
               currentHash={this.state.currentHash}
               currentTitle={this.state.currentTitle}
             />

@@ -169,6 +169,7 @@ class App extends Component {
           ? <div id="loader" className="text-center mt-5"><p>Loading...</p></div>
           : <Main
               //states&functions
+              videos={this.state.videos}
               uploadVideo={this.uploadVideo}
               captureFile={this.captureFile}
               currentHash={this.state.currentHash}
